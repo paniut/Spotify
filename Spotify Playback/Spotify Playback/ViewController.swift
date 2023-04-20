@@ -14,12 +14,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        view.backgroundColor = .purple
         setupNavigationBar()
         setupViews()
     }
 
-    func setupNavigationBar() {
+    private func setupNavigationBar() {
         navigationItem.title = "Playback"
     }
     
@@ -133,9 +133,10 @@ class ViewController: UIViewController {
         let label2 = UILabel()
         label2.translatesAutoresizingMaskIntoConstraints = false
         label2.text = text
-        label2.textColor = .white
+        label2.textColor = .gray
         label2.lineBreakMode = .byWordWrapping
         label2.numberOfLines = 0
+        label2.font = UIFont.systemFont(ofSize: 14)
         
         return label2
         
