@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = .orange
         setupNavigationBar()
         setupViews()
     }
@@ -23,24 +23,24 @@ class ViewController: UIViewController {
         navigationItem.title = "Playback"
     }
     
-    func setupViews() {
+    private func setupViews() {
         
         let offlineLabel = makeLabel(withText: "Offline")
-        let descriptionLabel = makeLabel(withText: "When you go offline, you'll only be able to play the music and podcasts you've downloaded")
+        let descriptionLabel = makeLabel2(withText: "When you go offline, you'll only be able to play the music and podcasts you've downloaded")
         let crossFadeLabel = makeLabel(withText: "Crossfade")
     
         let minCrossFadeLabel = makeLabel(withText: "0s")
-        let crossFadeProgressView = makeView(color: .yellow)
+        let crossFadeProgressView = makeView()
         let maxCrossFadeLabel = makeLabel(withText: "12s")
         
         let gaplessPlayback = makeLabel(withText: "Gapless Playback")
         let hideSongs = makeLabel(withText: "Hide Unplayable Songs")
         let enableAudio = makeLabel(withText: "Enable Audio Normalization")
         
-        let firstButton = makeButton(withText: "1")
-        let secondButton = makeButton(withText: "2")
-        let thirdButton = makeButton(withText: "3")
-        let fourthButton = makeButton(withText: "4")
+        let firstButton = makeSwitch(withText: "1")
+        let secondButton = makeSwitch(withText: "2")
+        let thirdButton = makeSwitch(withText: "3")
+        let fourthButton = makeSwitch(withText: "4")
         
         
     
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
             minCrossFadeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             
             crossFadeProgressView.centerYAnchor.constraint(equalTo: minCrossFadeLabel.centerYAnchor),
-            crossFadeProgressView.leadingAnchor.constraint(equalTo: minCrossFadeLabel.trailingAnchor, constant: 4),
+            crossFadeProgressView.heightAnchor.constraint(equalToConstant: 10),
             crossFadeProgressView.trailingAnchor.constraint(equalTo: minCrossFadeLabel.leadingAnchor, constant: -4),
             
             maxCrossFadeLabel.topAnchor.constraint(equalTo: crossFadeLabel.bottomAnchor, constant: spacing),
@@ -114,21 +114,31 @@ class ViewController: UIViewController {
         
     }
     
-    func makeButton(withText text: String) -> UIButton {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(text, for: .normal)
-        button.backgroundColor = .blue
+    func makeSwitch(withText text: String) -> UISwitch {
+        let switch1 = UISwitch()
+        switch1.translatesAutoresizingMaskIntoConstraints = false
         
-        return button
+        return switch1
     }
 
-    func makeView(color: UIColor) -> UIView {
+    func makeView() -> UIView {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .red
+        view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
+    }
+    
+    func makeLabel2(withText text: String) -> UILabel {
+        let label2 = UILabel()
+        label2.translatesAutoresizingMaskIntoConstraints = false
+        label2.text = text
+        label2.textColor = .white
+        label2.lineBreakMode = .byWordWrapping
+        label2.numberOfLines = 0
+        
+        return label2
+        
     }
 }
 
