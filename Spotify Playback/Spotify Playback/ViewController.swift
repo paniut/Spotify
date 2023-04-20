@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .purple
+        view.backgroundColor = .orange
         setupNavigationBar()
         setupViews()
     }
@@ -41,7 +41,6 @@ class ViewController: UIViewController {
         let secondButton = makeSwitch(withText: "2")
         let thirdButton = makeSwitch(withText: "3")
         let fourthButton = makeSwitch(withText: "4")
-        
         
     
         view.addSubview(offlineLabel)
@@ -77,8 +76,9 @@ class ViewController: UIViewController {
             minCrossFadeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             
             crossFadeProgressView.centerYAnchor.constraint(equalTo: minCrossFadeLabel.centerYAnchor),
-            crossFadeProgressView.heightAnchor.constraint(equalToConstant: 10),
-            crossFadeProgressView.trailingAnchor.constraint(equalTo: minCrossFadeLabel.leadingAnchor, constant: -4),
+            crossFadeProgressView.heightAnchor.constraint(equalToConstant: 3),
+            crossFadeProgressView.trailingAnchor.constraint(equalTo: maxCrossFadeLabel.leadingAnchor, constant: -4),
+            crossFadeProgressView.leadingAnchor.constraint(equalTo: minCrossFadeLabel.trailingAnchor, constant: 4),
             
             maxCrossFadeLabel.topAnchor.constraint(equalTo: crossFadeLabel.bottomAnchor, constant: spacing),
             maxCrossFadeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
